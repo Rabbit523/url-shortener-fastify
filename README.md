@@ -1,13 +1,7 @@
-# url-shortener-fastify
-
-Purpose & constraints (redirects @ massive QPS; low variance latency).
-
-Data/caching strategy (Redis hot path, Postgres source of truth).
-
-Perf: 1k rps for 5m; p99 18ms; cold start 280ms.
-
-Reliability: idempotent create; backpressure; circuit breaker on Redis.
-
-Security: signed admin endpoints; input validation (zod); rate limits.
-
-Next steps: async link checks, geo routing, edge cache.
+# Shorty API — Fast redirect service (Vercel/TS)
+- **What & why:** Shortens URLs and serves low-variance 301 redirects for high-QPS workloads.
+- **Architecture:** Fastify + Postgres (Prisma) with Redis hot path; async click logging.
+- **Performance:** Sustains 1k rps 5m; p99 18ms on cache hit; cold start 280ms on Fly.io.
+- **Reliability:** Idempotent create; transactionally counted clicks; circuit breaker on Redis (todo).
+- **DX:** 1-command local up (Docker Compose); `pnpm dev` hot reload; OpenAPI (todo).
+- **Roadmap:** BullMQ queue, geo routing, OpenAPI + SDK, edge cache.

@@ -15,6 +15,11 @@
     "test:load": "k6 run k6/redirect-load.js"
   },
   "devDependencies": {
+    "prisma": "^6.16.2",
     "tsx": "^4.20.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "nanoid": "^5.1.6"
   }
 }
