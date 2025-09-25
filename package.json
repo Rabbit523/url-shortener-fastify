@@ -1,0 +1,20 @@
+{
+  "name": "url-shortener-fastify",
+  "packageManager": "yarn@4.10.3",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name init",
+    "db:push": "prisma db push",
+    "seed": "tsx prisma/seed.ts",
+    "test:load": "k6 run k6/redirect-load.js"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5"
+  }
+}
